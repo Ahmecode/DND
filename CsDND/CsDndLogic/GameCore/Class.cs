@@ -9,12 +9,12 @@ namespace CsDND
 {
     internal class Class
     {
-        private string ClassName { get; set; }
-        private int[] Mana { get; set; }
-        private double AttackMult { get; set; }
-        private double ManaMult { get; set; }
-        private double LuckMult { get; set; }
-        private double ArmorMult { get; set; }
+        protected string ClassName { get; set; }
+        protected int[] Mana { get; set; }
+        protected double AttackMult { get; set; }
+        protected double ManaMult { get; set; }
+        protected double LuckMult { get; set; }
+        protected double ArmorMult { get; set; }
 
 
 

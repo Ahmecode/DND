@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,12 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class.cs" />
-    <Compile Include="Cube.cs" />
-    <Compile Include="GameCore\Entity.cs" />
-    <Compile Include="GameCore\Item.cs" />
-    <Compile Include="Inventory.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="CsDndLogic\GameCore\Class.cs" />
+    <Compile Include="CsDndLogic\Cube.cs" />
+    <Compile Include="CsDndLogic\GameCore\Entity.cs" />
+    <Compile Include="CsDndLogic\GameCore\Item.cs" />
+    <Compile Include="CsDndLogic\Inventory.cs" />
+    <Compile Include="CsDndLogic\Player.cs" />
+    <Compile Include="DndEngine\Button.cs" />
+    <Compile Include="DndEngine\CsDndEngine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DndEngine\Interface\Interface.cs" />
+    <Compile Include="DndEngine\Position.cs" />
+    <Compile Include="DndEngine\Shape2D.cs" />
+    <Compile Include="DndEngine\ObjSize.cs" />
+    <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,7 +67,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Graphics\BackGrounds\space_Background_1024.png" />
     <Content Include="TextInfo\GameIdList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Graphics\GameIcons\" />
+    <Folder Include="Graphics\InterfaceUi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
