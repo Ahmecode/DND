@@ -21,7 +21,7 @@ namespace CsDND
         public override void OnLoad()
         {
             Console.WriteLine("game load succeeded");
-            Interface MainMenuBackground = new Interface(@"C:/Users/MaximTurdaliev/source/repos/CsDND/CsDND/Graphics/BackGrounds/space_Background_1024.png","MainMenuBackground");
+            Interface MainMenuBackground = new Interface(@"C:/Users/MaximTurdaliev/source/repos/CsDND/CsDND/Graphics/BackGrounds/space_Background_2048.png","MainMenuBackground");
             AddInterface(MainMenuBackground);
         }
         int Count = 0;
