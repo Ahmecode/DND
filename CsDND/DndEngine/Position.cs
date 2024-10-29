@@ -8,8 +8,8 @@ namespace CsDND.DndEngine
 {
     internal class Position
     {
-        protected int PosX {  get; set; }
-        protected int PosY { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
 
 
     }

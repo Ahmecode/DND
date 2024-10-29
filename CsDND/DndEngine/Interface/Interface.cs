@@ -14,10 +14,10 @@ namespace CsDND.DndEngine
     {
         private Image Content;
         private string Path;
-        private PictureBox PictureBox = new PictureBox();
+        private ObjSize InterfaceSize ;
         public string Name {  get; set; }
 
-        public Interface(string FilePath, string InterfaceName)
+        public Interface(string FilePath, string InterfaceName , ObjSize InterfaceSize)
         {
             this.Path = FilePath;
             if (File.Exists(Path)){
@@ -33,9 +33,15 @@ namespace CsDND.DndEngine
                     Console.WriteLine($"Failed to load interface {Error.Message} ");
                 }
 
+                this.InterfaceSize = InterfaceSize;
                 this.Name = InterfaceName;
             }
             else { Console.WriteLine("FileNotFound");}
+        }
+
+        public ObjSize GetInterfaceSize()
+        {
+            return this.InterfaceSize;
         }
 
         public Image LoadImageFile()
@@ -45,14 +51,33 @@ namespace CsDND.DndEngine
 
         public Image LoadBackround(ObjSize ScreenSize)
         {
-            PictureBox.Image = Content;
-            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            PictureBox.Dock = DockStyle.None;
+            Image Resizebackground = new Bitmap(ScreenSize.X, ScreenSize.Y);
+            Graphics Helper = Graphics.FromImage(Resizebackground);
+            try
+            {
+                Helper.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                Helper.DrawImage(this.Content, 0, 0, ScreenSize.X, ScreenSize.Y);
+            }
 
-            PictureBox.Width = ScreenSize.X;
-            PictureBox.Height = ScreenSize.Y;
+            catch(Exception Ex)
+            {
+                Console.WriteLine($"coudlnt resize the image: Name{this.Name} , Path:{this.Path}");
+                Console.WriteLine($"Exeption: {Ex.Message}");
+            }
+            finally {
+                Helper.Dispose();
+            }
 
-            return PictureBox.Image;
+            return Resizebackground;
+        }
+        public Position CenterImage(ObjSize ImageSize , ObjSize ScreenSize)
+        {
+            Position CenterPos = new Position();
+            CenterPos.PosX = (ScreenSize.X / 2) - (ImageSize.X / 2);
+            CenterPos.PosY = (ScreenSize.Y / 2) - (ImageSize.Y / 2);
+
+            return CenterPos;
+
         }
     }
 }

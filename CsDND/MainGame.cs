@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace CsDND
@@ -13,15 +14,17 @@ namespace CsDND
     internal class MainGame : DndEngine.CsDndEngine
     {
         public MainGame()
-            : base(new ObjSize(1920 , 1080), "DndGame") 
+            : base("DndGame", Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName) 
         {
 
         }
 
         public override void OnLoad()
         {
+            string ProjectDir = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
+            Console.WriteLine(ProjectDir);
             Console.WriteLine("game load succeeded");
-            Interface MainMenuBackground = new Interface(@"C:/Users/MaximTurdaliev/source/repos/CsDND/CsDND/Graphics/BackGrounds/space_Background_1024.png","MainMenuBackground");
+            Interface MainMenuBackground = new Interface($@"{ProjectDir}\Graphics\BackGrounds\space_Background_1024.png","MainMenuBackground",new ObjSize(1024 , 1024));
             AddInterface(MainMenuBackground);
         }
         int Count = 0;
