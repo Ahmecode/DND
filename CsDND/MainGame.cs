@@ -22,10 +22,12 @@ namespace CsDND
         public override void OnLoad()
         {
             string ProjectDir = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
-            Console.WriteLine(ProjectDir);
+            Console.WriteLine($"Project: {ProjectDir}");
             Console.WriteLine("game load succeeded");
-            Interface MainMenuBackground = new Interface($@"{ProjectDir}\Graphics\BackGrounds\space_Background_1024.png","MainMenuBackground",new ObjSize(1024 , 1024));
+            ImageAsset MainMenuBackground = new ImageAsset($@"{ProjectDir}\GameResources\BackGrounds\space_Background_2048.png","MainMenuBackground",new ObjSize(1024 , 1024));
             AddInterface(MainMenuBackground);
+
+            LoadFont("DungeonFont1",16);
         }
         int Count = 0;
         public override void OnUpdate()

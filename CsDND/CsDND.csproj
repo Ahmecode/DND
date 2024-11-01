@@ -51,29 +51,43 @@
     <Compile Include="CsDndLogic\GameCore\Item.cs" />
     <Compile Include="CsDndLogic\Inventory.cs" />
     <Compile Include="CsDndLogic\Player.cs" />
-    <Compile Include="DndEngine\Button.cs" />
+    <Compile Include="DndEngine\Interface\Button.cs" />
     <Compile Include="DndEngine\CsDndEngine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DndEngine\Interface\Interface.cs" />
+    <Compile Include="DndEngine\Interface\ImageAsset.cs" />
     <Compile Include="DndEngine\Position.cs" />
     <Compile Include="DndEngine\Shape2D.cs" />
     <Compile Include="DndEngine\ObjSize.cs" />
+    <Compile Include="DndEngine\Interface\TextLabel.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameResources\Fonts\ResourcesFont.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesFont.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Resources\DungeonFont.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Graphics\BackGrounds\space_Background_1024.png" />
-    <Content Include="Graphics\BackGrounds\space_Background_2048.png" />
+    <Content Include="GameResources\BackGrounds\space_Background_1024.png" />
+    <Content Include="GameResources\BackGrounds\space_Background_2048.png" />
     <Content Include="TextInfo\GameIdList.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Graphics\GameIcons\" />
-    <Folder Include="Graphics\InterfaceUi\" />
+    <Folder Include="GameResources\GameIcons\" />
+    <Folder Include="GameResources\InterfaceUi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GameResources\Fonts\ResourcesFont.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesFont.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

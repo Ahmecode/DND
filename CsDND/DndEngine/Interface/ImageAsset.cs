@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CsDND.DndEngine
 {
-    internal class Interface
+    internal class ImageAsset
     {
         private Image Content;
         private string Path;
-        private ObjSize InterfaceSize ;
+        private ObjSize InterfaceSize;
         public string Name {  get; set; }
 
-        public Interface(string FilePath, string InterfaceName , ObjSize InterfaceSize)
+        public ImageAsset(string FilePath, string InterfaceName , ObjSize InterfaceSize)
         {
             this.Path = FilePath;
             if (File.Exists(Path)){
@@ -30,13 +30,13 @@ namespace CsDND.DndEngine
 
                 catch (Exception Error)
                 {
-                    Console.WriteLine($"Failed to load interface {Error.Message} ");
+                    Console.WriteLine($" [IMAGEASSET {this.Name}] Failed to load Image {Error.Message} ");
                 }
 
                 this.InterfaceSize = InterfaceSize;
                 this.Name = InterfaceName;
             }
-            else { Console.WriteLine("FileNotFound");}
+            else { Console.WriteLine($"[IMAGEASSET {this.Name}] FileNotFound");}
         }
 
         public ObjSize GetInterfaceSize()
@@ -51,6 +51,10 @@ namespace CsDND.DndEngine
 
         public Image LoadBackround(ObjSize ScreenSize)
         {
+            float Scale = Math.Min((float)ScreenSize.X / Content.Width, (float)ScreenSize.Y / Content.Height);
+            int NewWidth = (int)(Content.Width * Scale);
+            int NewHeight = (int)(Content.Height * Scale);
+
             Image Resizebackground = new Bitmap(ScreenSize.X, ScreenSize.Y);
             Graphics Helper = Graphics.FromImage(Resizebackground);
             try
@@ -79,5 +83,6 @@ namespace CsDND.DndEngine
             return CenterPos;
 
         }
+
     }
 }
