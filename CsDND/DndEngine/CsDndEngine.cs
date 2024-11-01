@@ -20,6 +20,8 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
 
     internal abstract class CsDndEngine
     {
+        private Rectangle UserScreenSize;
+        private string GameDir;
         private ObjSize ScreenSize; // Define the screensize with ObjSize class 
         private string GameTitle; // the name of the window
         private Canvas GameWindow; // the physical layer of the game 
@@ -28,8 +30,8 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
         private List<Interface> AllInterfaces = new List<Interface>();
         public CsDndEngine() // the deafult (dont use it)
         {
-            this.ScreenSize.X = 1920;
-            this.ScreenSize.Y = 1080;
+            this.ScreenSize.X = UserScreenSize.Width;
+            this.ScreenSize.Y = UserScreenSize.Height;
             this.GameTitle = string.Empty;
 
             GameWindow = new Canvas();
@@ -38,11 +40,15 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
             Application.Run(GameWindow);
         }
 
-        public CsDndEngine(ObjSize ScreenSize, string Title) // input based 
+        public CsDndEngine(string Title , string GameDir) // input based 
         {
+
+            InitializeUserScreenSize();
             try
             {
-                this.ScreenSize = ScreenSize;
+                this.GameDir = GameDir;
+                this.ScreenSize.X = UserScreenSize.Width;
+                this.ScreenSize.Y = UserScreenSize.Height;
                 this.GameTitle = Title;
 
                 GameWindow = new Canvas();
@@ -58,6 +64,24 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
 
             catch {
                 Console.WriteLine("the game is loading");
+            }
+        }
+
+        private void InitializeUserScreenSize()
+        {   
+            try
+            {
+                UserScreenSize = Screen.PrimaryScreen.Bounds;
+                this.ScreenSize.X = UserScreenSize.Width;
+                this.ScreenSize.Y = UserScreenSize.Height;
+            }
+
+            catch (Exception Ex)
+            {
+                Console.WriteLine($"InitializeUserScreenSize was failed Exception{Ex.Message}");
+                Console.WriteLine($"");
+                this.ScreenSize.X = 1920;
+                this.ScreenSize.Y = 1080;
             }
         }
 
@@ -80,7 +104,8 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
             try
             {
                 Interface MainMenuBackground = AllInterfaces.Find(i => i.Name == "MainMenuBackground");
-                G.DrawImage(MainMenuBackground.LoadBackround(ScreenSize), (this.ScreenSize.X) / 2, this.ScreenSize.Y / 2);
+                Position CenterPos = MainMenuBackground.CenterImage(MainMenuBackground.GetInterfaceSize() , this.ScreenSize);
+                G.DrawImage(MainMenuBackground.LoadBackround(ScreenSize), CenterPos.PosX, CenterPos.PosY);
             }
             catch { Console.WriteLine("error in loading main menu"); }
         }
