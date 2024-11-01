@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Windows.Forms;
 
 namespace CsDND
 {
     internal class MainGame : DndEngine.CsDndEngine
     {
         public MainGame()
-            : base("DndGame", Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName) 
+            : base("DndGame", Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName)
         {
 
         }
@@ -24,10 +25,16 @@ namespace CsDND
             string ProjectDir = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
             Console.WriteLine($"Project: {ProjectDir}");
             Console.WriteLine("game load succeeded");
-            ImageAsset MainMenuBackground = new ImageAsset($@"{ProjectDir}\GameResources\BackGrounds\space_Background_2048.png","MainMenuBackground",new ObjSize(1024 , 1024));
+
+            ImageAsset MainMenuBackground = new ImageAsset($@"{ProjectDir}\GameResources\BackGrounds\space_Background_2048.png", "MainMenuBackground", new ObjSize(1024, 1024));
             AddInterface(MainMenuBackground);
 
-            LoadFont("DungeonFont1",16);
+            LoadFont("DungeonFont", 16);
+
+            //TextLabel TestLabel = new TextLabel("Ori Hifi", "TEST", "DungeonFont");
+            //TestLabel.UpdatePos(new Position(100 , 100));
+            
+         
         }
         int Count = 0;
         public override void OnUpdate()

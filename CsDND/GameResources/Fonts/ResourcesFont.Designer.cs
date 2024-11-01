@@ -63,9 +63,9 @@ namespace CsDND.GameResources.Fonts {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DungeonFont1 {
+        internal static byte[] DungeonFont {
             get {
-                object obj = ResourceManager.GetObject("DungeonFont1", resourceCulture);
+                object obj = ResourceManager.GetObject("DungeonFont", resourceCulture);
                 return ((byte[])(obj));
             }
         }

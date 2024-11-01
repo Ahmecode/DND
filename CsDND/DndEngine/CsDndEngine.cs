@@ -110,7 +110,13 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
             try
             {
                 ImageAsset MainMenuBackground = AllInterfaces.Find(i => i.Name == "MainMenuBackground");
-                G.DrawImage(MainMenuBackground.LoadBackround(ScreenSize),0,0);
+                G.DrawImage(MainMenuBackground.LoadBackround(ScreenSize), 0, 0);
+
+                TextLabel TestLabel = new TextLabel("Ori Hifi", "TEST", "DungeonFont");
+                TestLabel.UpdatePos(new Position(100, 100));
+
+                G.DrawString(TestLabel.Content, TestLabel.Font,new SolidBrush(TestLabel.TextColor),100 , 100);
+
             }
             catch { Console.WriteLine("error in loading main menu"); }
         }
@@ -142,6 +148,17 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
             Marshal.FreeCoTaskMem(FontPointer);
 
             AllFonts.Add(new Font(privateFontCollection.Families[0], FontSize));
+        }
+
+        public static Font GetFont(string Name)
+        {
+
+            Font ReturnFont = AllFonts.Find(i => i.Name == Name);
+            if (ReturnFont == null)
+                Console.WriteLine($"[ENGINE] invalid font name GetFont({Name})  , returned null ");
+
+            return ReturnFont;
+
         }
 
         public abstract void OnLoad();

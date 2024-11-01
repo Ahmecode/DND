@@ -56,10 +56,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DndEngine\Interface\ImageAsset.cs" />
+    <Compile Include="DndEngine\Interface\InterfaceScreen.cs" />
     <Compile Include="DndEngine\Position.cs" />
     <Compile Include="DndEngine\Shape2D.cs" />
     <Compile Include="DndEngine\ObjSize.cs" />
-    <Compile Include="DndEngine\Interface\TextLabel.cs" />
+    <Compile Include="DndEngine\Interface\TextLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

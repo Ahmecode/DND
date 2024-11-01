@@ -11,6 +11,19 @@ namespace CsDND.DndEngine
         public int PosX { get; set; }
         public int PosY { get; set; }
 
+        public Position()
+        {
+            //~~~
+        }
+
+        public Position(int PosX, int PosY)
+        {
+            this.PosX = PosX;
+            this.PosY = PosY;
+        }
+
 
     }
+
+    
 }

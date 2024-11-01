@@ -8,12 +8,7 @@ namespace CsDND.DndEngine
 {
     internal class Button 
     {
-        //public Button(string FilePath, string InterfaceName, ObjSize InterfaceSize)
-        //    : base(FilePath , InterfaceName, InterfaceSize)
-        //{
-            
-        //}
-
+        public string Name { get; set; }
 
     }
 }

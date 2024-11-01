@@ -65,7 +65,7 @@ namespace CsDND.DndEngine
 
             catch(Exception Ex)
             {
-                Console.WriteLine($"coudlnt resize the image: Name{this.Name} , Path:{this.Path}");
+                Console.WriteLine($"coudlnt resize the image: LabelName{this.Name} , Path:{this.Path}");
                 Console.WriteLine($"Exeption: {Ex.Message}");
             }
             finally {
