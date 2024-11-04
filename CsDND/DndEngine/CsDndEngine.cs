@@ -112,13 +112,13 @@ namespace CsDND.DndEngine //38:35 / 2:43:33
                 ImageAsset MainMenuBackground = AllInterfaces.Find(i => i.Name == "MainMenuBackground");
                 G.DrawImage(MainMenuBackground.LoadBackround(ScreenSize), 0, 0);
 
-                TextLabel TestLabel = new TextLabel("Ori Hifi", "TEST", "DungeonFont");
-                TestLabel.UpdatePos(new Position(100, 100));
+                TextLabel TestLabel = new TextLabel("Test Hello", "TEST","DungeonFont");
+                TestLabel.UpdatePos(new Position(100,300));
 
-                G.DrawString(TestLabel.Content, TestLabel.Font,new SolidBrush(TestLabel.TextColor),100 , 100);
+                G.DrawString(TestLabel.Content, TestLabel.Font,new SolidBrush(TestLabel.TextColor),TestLabel.Location);
 
             }
-            catch { Console.WriteLine("error in loading main menu"); }
+            catch(Exception Ex) { Console.WriteLine($"error in loading main menu {Ex.Message}"); }
         }
 
         public void AddInterface(ImageAsset Interface)

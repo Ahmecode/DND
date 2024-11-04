@@ -51,12 +51,14 @@
     <Compile Include="CsDndLogic\GameCore\Item.cs" />
     <Compile Include="CsDndLogic\Inventory.cs" />
     <Compile Include="CsDndLogic\Player.cs" />
-    <Compile Include="DndEngine\Interface\Button.cs" />
+    <Compile Include="DndEngine\Interface\ObjButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DndEngine\CsDndEngine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DndEngine\Interface\ImageAsset.cs" />
-    <Compile Include="DndEngine\Interface\InterfaceScreen.cs" />
+    <Compile Include="DndEngine\Interface\InterfaceGroup.cs" />
     <Compile Include="DndEngine\Position.cs" />
     <Compile Include="DndEngine\Shape2D.cs" />
     <Compile Include="DndEngine\ObjSize.cs" />

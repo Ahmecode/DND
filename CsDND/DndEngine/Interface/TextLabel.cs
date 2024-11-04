@@ -16,21 +16,21 @@ namespace CsDND.DndEngine
     {
 
         public string LabelName {  get; set; } 
-        public Control TextControl = new Control();
         public string Content { get; set; }
         public Font TextFont { get; set; }
         public Color TextColor { get; set; }
-        public Position LabelPos = new Position();
-        
-        
+        public Position LabelPos;
+
+
         public TextLabel(string Content,string LabelName,string FontName) // deafult for your game
         {
             this.Content = Content; 
             this.TextColor = Color.White;
             this.LabelName = LabelName;
             this.TextFont = MainGame.GetFont(FontName);
+            this.LabelPos = new Position(0, 0);
 
-            this.Location = new Point(0,0);
+            this.Location = new Point(LabelPos.PosX, LabelPos.PosY);
             SetControl(); // sets the parameters into control class so it can be rendered 
         }
 

@@ -1,25 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CsDND.DndEngine.Interface
 {
-    internal class InterfaceScreen
+    internal class InterfaceGroup
     {
         private string ScreenName;
+        private ObjSize ScreenSize;
 
         private List<ImageAsset> ImageAssets = new List<ImageAsset>();
         private List<TextLabel> TextLabels = new List<TextLabel>();
-        private List<Button> Buttons = new List<Button>();
+        private List<ObjButton> Buttons = new List<ObjButton>();
 
-        public InterfaceScreen() {
+        public InterfaceGroup() {
         }
 
         public void LoadInterfaceScreen()
         {
+            //~~~
+        }
 
+        public void SetGroupSize(ObjSize InputSize)
+        {
+            ScreenSize.X = InputSize.X;
+            ScreenSize.Y = InputSize.Y;
         }
 
         public void AddImage(ImageAsset Image)
@@ -50,14 +59,14 @@ namespace CsDND.DndEngine.Interface
             }
         }
 
-        public void AddButton(Button Button)
+        public void AddButton(ObjButton Button)
         {
             this.Buttons.Add(Button);
         }
 
         public void RemoveButton(string Name)
         {
-            Button ButtonToRemove = Buttons.Find(x => x.Name == Name);
+            ObjButton ButtonToRemove = Buttons.Find(x => x.Name == Name);
             if (ButtonToRemove != null)
             {
                 Buttons.Remove(ButtonToRemove);
@@ -65,9 +74,9 @@ namespace CsDND.DndEngine.Interface
         }
 
 
-        public void LoadInterfaceScreen(int X)
+        public void LoadInterfaceCenter(ObjSize ScreenSize)
         {
-
+            
         }
     }
 }

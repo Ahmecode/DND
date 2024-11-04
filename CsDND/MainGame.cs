@@ -29,7 +29,9 @@ namespace CsDND
             ImageAsset MainMenuBackground = new ImageAsset($@"{ProjectDir}\GameResources\BackGrounds\space_Background_2048.png", "MainMenuBackground", new ObjSize(1024, 1024));
             AddInterface(MainMenuBackground);
 
-            LoadFont("DungeonFont", 16);
+            LoadFont("DungeonFont", 20);
+
+            ObjButton Test = new ObjButton("a",null,null);
 
             //TextLabel TestLabel = new TextLabel("Ori Hifi", "TEST", "DungeonFont");
             //TestLabel.UpdatePos(new Position(100 , 100));
