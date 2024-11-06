@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace CsDND.DndEngine
 {
-    internal class ObjButton:Control
+    abstract class ObjButton:Control
     {
         public string Name { get; set; }
         public TextLabel BtnText { get; set; }
@@ -42,20 +42,10 @@ namespace CsDND.DndEngine
             //this.Click += OnClick;
         }
 
-        private void OnMouseEnter()
-        {
+        public abstract void OnMouseEnter();
+        public abstract void OnMouseLeave();
+        public abstract void OnClicks();
 
-        }
-
-        private void OnMouseLeave()
-        {
-
-        }
-
-        private void OnClicks()
-        {
-
-        }
 
 
 

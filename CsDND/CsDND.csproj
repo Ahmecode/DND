@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="DndEngine\Interface\ImageAsset.cs" />
     <Compile Include="DndEngine\Interface\InterfaceGroup.cs" />
+    <Compile Include="DndEngine\Interface\InputEvents.cs" />
     <Compile Include="DndEngine\Position.cs" />
     <Compile Include="DndEngine\Shape2D.cs" />
     <Compile Include="DndEngine\ObjSize.cs" />
